@@ -27,7 +27,7 @@ function render (fixture, opts) {
 function execute (str) {
   var str = str.replace(/<script>/g, '').replace(/<\/script>/g, '')
     , script = vm.createScript(str)
-    , obj = { window: {}, console: console }
+    , obj = { window: {} }
 
   script.runInNewContext(obj);
 
