@@ -11,8 +11,7 @@ In your jade template, use the `template:` filter and set the `id` property:
 
     p Hello world
 
-    template:
-      id my-template
+    template(id="my-template"):
       div
         p This is my template
         - if (a == 2)
