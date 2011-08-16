@@ -2,10 +2,8 @@
     "name": "jadevu"
   , "version": "0.0.1"
   , "author": "Guillermo Rauch <guillermo@learnboost.com>"
-  , "dependencies": {
-      "jade": "0.14.1"
-    }
   , "devDependencies": {
-      "should": "0.2.1"
+        "jade": "0.14.1"
+      , "should": "0.2.1"
     }
 }
