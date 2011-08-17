@@ -21,20 +21,24 @@ In your jade template, use the `template:` filter and set the `id` property:
 
 When compiled, this turns into HTML that looks like this:
 
-    <p>Hello world</p>
+```html
+<p>Hello world</p>
 
-    <script>
-      if ('undefined' == typeof template) template = function (id, params) { … }
-      template._['my-template'] = function () { /* precompiled template */ };
-    </script>
+<script>
+  if ('undefined' == typeof template) template = function (id, params) { … }
+  template._['my-template'] = function () { /* precompiled template */ };
+</script>
+```
 
 What does this mean? From your client-side (eg: jQuery) code, you can include that
 mini-template, and turn it into HTML:
 
-    <script>
-      // hint: if jQuery is loaded, `template` will return a jQuery object
-      template('my-template', { a: 2 }).appendTo('body');
-    </script>
+```html
+<script>
+  // hint: if jQuery is loaded, `template` will return a jQuery object
+  template('my-template', { a: 2 }).appendTo('body');
+</script>
+```
 
 ## How to use
 
