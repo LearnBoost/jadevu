@@ -76,3 +76,9 @@ template('woot', { times: 5 }).should.equal(
 );
 
 template('tj', { woot: 'haha' }).should.equal('<p>haha</p>');
+
+console.log('Testing that templates with multiple lines compile');
+
+var template = execute(render('multiple'));
+
+template('woot').should.equal('<div>woot\n<p>woot\n</p></div>');
