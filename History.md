@@ -1,4 +1,10 @@
 
+0.0.6 / 2011-08-31
+==================
+
+  * Added test for ignoring debug lines.
+  * Fixed; pass `compileDebug: false` to compiler.
+
 0.0.5 / 2011-08-26
 ==================
 

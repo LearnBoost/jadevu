@@ -1,6 +1,6 @@
 {
     "name": "jadevu"
-  , "version": "0.0.5"
+  , "version": "0.0.6"
   , "author": "Guillermo Rauch <guillermo@learnboost.com>"
   , "devDependencies": {
         "jade": "0.14.2"
