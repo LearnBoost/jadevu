@@ -82,3 +82,9 @@ console.log('Testing that templates with multiple lines compile');
 var template = execute(render('multiple'));
 
 template('woot').should.equal('<div>woot\n<p>woot\n</p></div>');
+
+console.log('Testing that templates dont include debug code');
+
+render('twice').should.not.include.string('.lineno');
+
+console.log('+ All tests passed');
