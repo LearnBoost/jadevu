@@ -14,10 +14,10 @@ var should = require('should')
  */
 
 function render (fixture, opts) {
-  return jade.render(
+  return jade.compile(
       fs.readFileSync(__dirname + '/test/' + fixture + '.jade')
     , opts
-  );
+  )();
 };
 
 /**
