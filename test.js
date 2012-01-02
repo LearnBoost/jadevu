@@ -87,4 +87,13 @@ console.log('Testing that templates dont include debug code');
 
 render('twice').should.not.include('.lineno');
 
+console.log('Testing support for option.self');
+
+var rendered = render('self', { self: true });
+
+rendered.should.not.include('with (locals || {})');
+
+var template = execute(rendered);
+template('nowith', { foo: 'Abc' }).should.equal('<p>Abc</p>');
+
 console.log('+ All tests passed');
