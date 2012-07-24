@@ -45,7 +45,7 @@ var thrown = false;
 try {
   render('noid');
 } catch (e) {
-  e.message.should.include.string('`id`');
+  e.message.should.include('`id`');
   thrown = true;
 }
 
@@ -53,16 +53,16 @@ thrown.should.be.true;
 
 console.log('Testing that compiling a template includes the wrapper');
 
-render('wrapper').should.include.string('template');
-render('wrapper').should.include.string('template._');;
-render('wrapper').should.include.string('noConflict');
-render('wrapper').should.include.string('<script>');
+render('wrapper').should.include('template');
+render('wrapper').should.include('template._');;
+render('wrapper').should.include('noConflict');
+render('wrapper').should.include('<script>');
 
 console.log('Testing that the wrapper appears only once');
 
-render('twice').should.include.string('<span>Hello world</span>');
-render('twice').should.include.string('uno');
-render('twice').should.include.string('dos');
+render('twice').should.include('<span>Hello world</span>');
+render('twice').should.include('uno');
+render('twice').should.include('dos');
 render('twice').indexOf('.noConflict').should.equal(
   render('twice').lastIndexOf('.noConflict')
 );
@@ -85,6 +85,15 @@ template('woot').should.equal('<div>woot\n<p>woot\n</p></div>');
 
 console.log('Testing that templates dont include debug code');
 
-render('twice').should.not.include.string('.lineno');
+render('twice').should.not.include('.lineno');
+
+console.log('Testing support for option.self');
+
+var rendered = render('self', { self: true });
+
+rendered.should.not.include('with (locals || {})');
+
+var template = execute(rendered);
+template('nowith', { foo: 'Abc' }).should.equal('<p>Abc</p>');
 
 console.log('+ All tests passed');
