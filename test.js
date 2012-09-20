@@ -87,4 +87,10 @@ console.log('Testing that templates dont include debug code');
 
 render('twice').should.not.include('.lineno');
 
+console.log('Testing that many nodes are ok');
+
+var template = execute(render('many-nodes'));
+
+template('many-nodes', { three: 3 }).should.equal('<tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr>');
+
 console.log('+ All tests passed');
